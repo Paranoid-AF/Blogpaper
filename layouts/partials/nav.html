@@ -1,4 +1,17 @@
+{{ if .IsHome }}
+<nav class="nav nav__homepage">
+{{else}}
 <nav class="nav">
+{{ end }}
+  <div class="nav__description">
+    <h1>{{ .Site.Title }}</h1>
+    {{- with .Site.Params.description }}
+    <p>{{ . }}</p>
+    {{- end -}}
+  </div>
+  <div class="nav__scroll-down">
+    <img src="icons/angle_down.svg">
+  </div>
   <div class="nav__content container metadata">
     <div class="nav__home">
       <a href="{{ .Site.Home.RelPermalink }}" >

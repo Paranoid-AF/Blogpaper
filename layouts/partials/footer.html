@@ -7,3 +7,51 @@
   {{- end -}}
 </footer>
 {{- end }}
+<script>
+  function updateCover(transitionProgress) {
+    if(transitionProgress < 0) {
+      transitionProgress = 0
+    }
+    if(transitionProgress > 1) {
+      transitionProgress = 1
+    }
+    var header = document.querySelector('header.header.header--main.header__frontpage')
+    var nav = document.querySelector('nav.nav.nav__frontpage')
+    if(header && nav) {
+      var banner =  header.querySelector('figure.banner img')
+      if(banner) {
+        banner.style.filter = 'blur(' + (80 * transitionProgress).toString() + 'px)'
+      }
+      if(nav) {
+        var desc = nav.querySelector('.nav__description')
+        var navLinks = nav.querySelector('.nav__content.container.metadata')
+        if(desc) {
+          desc.style.opacity = (1 - transitionProgress).toString()
+        }
+        if(navLinks) {
+          navLinks.style.opacity = (transitionProgress).toString()
+        }
+      }
+    }
+  }
+  window.addEventListener('scroll', function() {
+    var navLinks = document.querySelector('nav.nav.nav__frontpage > .nav__content.container.metadata')
+    var scrollIcon = document.querySelector('nav.nav.nav__frontpage > .nav__scroll-down')
+    var vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+    if(navLinks) {
+      updateCover(window.scrollY / (vh - navLinks.offsetHeight))
+    } else {
+      updateCover(window.scrollY / vh)
+    }
+    if(scrollIcon) {
+      if(window.scrollY > 0) {
+        scrollIcon.style.filter = 'opacity(0)'
+      } else {
+        scrollIcon.style.filter = 'opacity(100%)'
+      }
+    }
+  })
+  window.addEventListener('load', function() {
+    updateCover(0)
+  })
+</script>

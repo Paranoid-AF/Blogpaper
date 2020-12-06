@@ -185,11 +185,73 @@ a {
     justify-content: space-between;
     height: var(--nav-height);
   }
+
+  .nav__scroll-down {
+    display: none;
+  }
+
+  &.nav__frontpage {
+    height: 100vh;
+    
+    .nav__description {
+      display: block;
+    }
+
+    .nav__content.container.metadata{
+      transform: translateY(calc(100vh - 100%));
+      opacity: 1;
+    }
+
+    .nav__scroll-down {
+      display: block;
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 72px;
+      transition: filter 0.5s;
+      animation-duration: 5s;
+      animation-name: slidein;
+      animation-iteration-count:infinite;
+
+      @keyframes slidein {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, -200%);
+        }
+      
+        25%, 100% {
+          opacity: 1;
+          transform: translate(-50%, 50%);
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        user-select: none;
+        -webkit-user-drag: none;
+      }
+    }
+  }
+
+  .nav__description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 0;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    display: none;
+  }
 }
 
 /* Header */
 
 .header {
+  padding-top: var(--nav-height);
+  padding-bottom: var(--header--main-padding-bottom);
 
   &__title {
     margin: var(--header__title-margin);
@@ -216,9 +278,6 @@ a {
 
 .header--main {
   position: relative;
-  margin-bottom: var(--header--main-margin-bottom);
-  padding-top: var(--nav-height);
-  padding-bottom: var(--header--main-padding-bottom);
   background: var(--header--main-color-background);
   color: var(--header--main-color-text);
   @include set-links-color(var(--header--main-color-text-rgb), var(--color-link-underline-opacity));
@@ -230,7 +289,24 @@ a {
     }
   }
 
+  &.header__frontpage {
+    height: 100vh;
+  }
+
+  &.header__homepage {
+    padding-bottom: 0;
+  }
+
+  figure.banner {
+    overflow: hidden;
+
+    img {
+      filter: blur(80px);
+    }
+  }
+
   .container {
+    padding: var(--container-padding);
     max-width: var(--header--main-max-width);
   }
 
@@ -283,6 +359,13 @@ a {
     p {
       margin: 0;
     }
+  }
+}
+
+figure {
+
+  &.banner a {
+    border-bottom: none;
   }
 }
 
