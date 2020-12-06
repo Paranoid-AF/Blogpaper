@@ -16,7 +16,7 @@
 </section>
 {{ if eq $paginator.PageNumber 1 }}
   <script>
-    window.addEventListener('load', function() {
+    window.addEventListener('DOMContentLoaded', function() {
       var navHomepage = document.querySelector('nav.nav.nav__homepage')
       var headerHomepage = document.querySelector('header.header.header--main.header__homepage')
       if(navHomepage !== null) {
