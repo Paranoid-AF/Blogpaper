@@ -1,8 +1,8 @@
-name = "Blogpaper"
+name = "Blogpaper-SoyFlavored"
 license = "MIT"
-licenselink = "https://github.com/NormandErwan/Blogpaper/blob/master/LICENSE"
+licenselink = "https://github.com/Paranoid-AF/Blogpaper-SoyFlavored/blob/master/LICENSE.md"
 description = "A graphical newspaper like blog theme for Hugo."
-homepage = "https://normanderwan.github.io/Blogpaper"
+homepage = "https://github.com/Paranoid-AF/Blogpaper-SoyFlavored"
 tags = [
   "theme",
   "hugo",
@@ -17,10 +17,10 @@ features = [
 min_version = 0.48
 
 [author]
-name = "Erwan Normand"
-homepage = "https://normanderwan.fr"
+name = "Paranoid_AF"
+homepage = "https://soydev.me"
 
 [original]
-name = "Start Bootstrap - Clean Blog"
-homepage = "https://startbootstrap.com/themes/clean-blog/"
-repo = "https://github.com/BlackrockDigital/startbootstrap-clean-blog"
+name = "Erwan Normand"
+homepage = "https://normanderwan.fr"
+repo = "https://github.com/NormandErwan/Blogpaper"
