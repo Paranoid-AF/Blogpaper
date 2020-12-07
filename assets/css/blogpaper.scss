@@ -286,6 +286,7 @@ a {
   background: var(--header--main-color-background);
   color: var(--header--main-color-text);
   @include set-links-color(var(--header--main-color-text-rgb), var(--color-link-underline-opacity));
+  overflow: hidden;
 
   &__categories {
 
@@ -304,10 +305,9 @@ a {
 
   figure.banner {
     overflow: hidden;
-
-    img {
-      filter: blur(80px);
-    }
+    filter: blur(80px);
+    background-attachment: fixed;
+    background-size: cover;
   }
 
   .container {

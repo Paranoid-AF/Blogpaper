@@ -1,9 +1,7 @@
-<figure class="banner">
+<figure class="banner" style="background-image: url({{ .resource.RelPermalink }});">
   {{- with .page_href -}}
   <a href="{{ . }}">
   {{- end -}}
-
-  <img src="{{ .resource.RelPermalink }}" alt="{{ .alt }}" />
 
   {{- with .page_href -}}
   </a>

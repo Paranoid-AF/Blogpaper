@@ -18,9 +18,10 @@
     var header = document.querySelector('header.header.header--main.header__frontpage')
     var nav = document.querySelector('nav.nav.nav__frontpage')
     if(header && nav) {
-      var banner =  header.querySelector('figure.banner img')
-      if(banner) {
-        banner.style.filter = 'blur(' + (80 * transitionProgress).toString() + 'px)'
+      var banner =  header.querySelector('figure.banner')
+      var newBlur = 'blur(' + (80 * transitionProgress).toFixed(1).toString() + 'px)'
+      if(banner && banner.style.filter !== newBlur) {
+        banner.style.filter = newBlur
       }
       if(nav) {
         var desc = nav.querySelector('.nav__description')
