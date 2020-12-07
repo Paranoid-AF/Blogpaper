@@ -308,6 +308,10 @@ a {
     filter: blur(80px);
     background-attachment: fixed;
     background-size: cover;
+
+    img {
+      display: none;
+    }
   }
 
   .container {
@@ -356,6 +360,7 @@ a {
     margin-bottom: var(--summary__banner-margin-bottom);
     max-height: var(--summary__banner-max-height);
     overflow: hidden;
+    background: none !important;
   }
 
   &__content {
