@@ -19,20 +19,30 @@
     }
     var header = document.querySelector('header.header.header--main.header__frontpage')
     var nav = document.querySelector('nav.nav.nav__frontpage')
-    if(header && nav) {
+    if(nav) {
+      var desc = nav.querySelector('.nav__description')
+      var navLinks = nav.querySelector('.nav__content.container.metadata')
+      if(desc) {
+        desc.style.opacity = (1 - transitionProgress).toString()
+      }
+      if(navLinks) {
+        navLinks.style.opacity = (transitionProgress).toString()
+      }
+    }
+    var currentUpdate = new Date()
+    if(updateTimeout) {
+        window.clearTimeout(updateTimeout)
+    }
+    if(currentUpdate - previousUpdate < 300) {
+      updateTimeout = window.setTimeout(onScroll, 300)
+      return
+    } else {
+      previousUpdate = currentUpdate
+    }
+    if(header) {
       var banner =  header.querySelector('figure.banner')
       if(banner) {
         banner.style.filter = 'blur(' + (80 * transitionProgress).toFixed(1).toString() + 'px)'
-      }
-      if(nav) {
-        var desc = nav.querySelector('.nav__description')
-        var navLinks = nav.querySelector('.nav__content.container.metadata')
-        if(desc) {
-          desc.style.opacity = (1 - transitionProgress).toString()
-        }
-        if(navLinks) {
-          navLinks.style.opacity = (transitionProgress).toString()
-        }
       }
     }
   }
@@ -46,16 +56,6 @@
       } else {
         scrollIcon.style.filter = 'opacity(100%)'
       }
-    }
-    var currentUpdate = new Date()
-    if(updateTimeout) {
-        window.clearTimeout(updateTimeout)
-    }
-    if(currentUpdate - previousUpdate < 300) {
-      updateTimeout = window.setTimeout(onScroll, 300)
-      return
-    } else {
-      previousUpdate = currentUpdate
     }
     var navLinks = document.querySelector('nav.nav.nav__frontpage > .nav__content.container.metadata')
     var vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
