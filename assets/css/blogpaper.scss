@@ -308,7 +308,7 @@ a {
     filter: blur(80px);
     background-attachment: fixed;
     background-size: cover;
-
+    transition: filter 0.5s;
     img {
       display: none;
     }
